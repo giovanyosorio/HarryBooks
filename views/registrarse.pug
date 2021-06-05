@@ -1,0 +1,30 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='theme-color' content='#462E49')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  title
+    | Unirme - Mapas Mundiales de Enfermedades Cr&oacute;nicas y Enfermedades Poco Frecuentes - Afectado/a | Diseasemaps
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+  // Latest compiled and minified CSS
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+  // Optional theme
+  link(href='//fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css')
+  link(href='/css/main.css' type='text/css' rel='stylesheet')
+block content
+  h1 Register
+  form(method='POST', action='/registrarse')
+    #form-group
+      label Name:
+      input.form-control(name='name', type='text')
+    #form-group
+      label Username:
+      input.form-control(name='username', type='text')
+      label Password:
+      input.form-control(name='password',type='password')
+    #form-group
+      label Confirm:
+      input.form-control(name='password2',type='password')
+    br
+    input.btn.btn-primary(type='submit',value='Submit')

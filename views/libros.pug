@@ -1,0 +1,20 @@
+ul
+h1 <a href="/carrito">Carrito de compras</a> 
+
+  each book in books
+
+    h1  Nombre del Libro #{book.nombre}
+    img.card-img-top(src=book.img, alt='#{book.nombre}' style='width:200px;height:200px;')
+    li book id #{book._id}
+    li Precio: #{book.precio} 
+    li Cantidad #{book.cantidad}
+      if book.cantidad!=0
+        li cantidad disponible : #{book.cantidad}
+        form(method='POST' action='/comprar/'+book._id+'?_method=POST')
+          .form-group
+            input.form-control(type='text' name='cantidad' placeholder='cantidad')
+
+            button.btn.btn-danger.btn-block.btn-sm(type='submit') agregar al carrito
+
+
+

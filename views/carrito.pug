@@ -1,0 +1,39 @@
+ul
+    a(href='/books') Regresar 
+
+each compra in compras
+    h1 compras
+    li libros #{compra.nombre}
+    li cantidad #{compra.cantidad}
+    li valor unitario #{compra.valor}
+    li total #{compra.total}
+    li compra user id #{compra.user_id}
+    li id compra #{compra._id}
+    a(href='/compra/delete/'+compra._id) delete
+        button.btn.btn-danger.btn-block.btn-sm(type='submit') Delete
+    p
+    a(href='/editar/'+compra._id) Editar cantidad
+    p 
+
+p
+a(href='/cancelar') CANCELAR COMPRA 
+p
+button(onclick='myFunction()') CONFIRMAR COMPRA
+p     
+h1 Total a pagar = #{total}
+p#demo
+script.
+    function myFunction() {
+    var txt;
+
+    if (confirm("Press a button!")) {
+        location.href="http://localhost:3000/books"
+    } else {
+    txt = "You pressed Cancel!";
+    }
+    document.getElementById("demo").innerHTML = txt;
+    }
+
+
+
+

@@ -1,0 +1,13 @@
+.col-md-4.mx-auto
+    .card
+        .card-header
+            h3 Edit Medicamento
+        .card-body
+            form(method='POST' action='/edit/compra/'+compra._id)
+                input(type='hidden' name='_method' value='POST')
+                .form-group
+                    input.form-control(type='text' name='nombre' value=`${compra.nombre}`)
+                .form-group
+                    textarea.form-control(name='cantidad') #{compra.cantidad}
+                    button.btn.btn-primary.btn-block(type='submit')
+                        | Save
