@@ -30,18 +30,29 @@ router.get("/ingresar", function (req, res, next) {
 
 router.post("/registrarse", async function (req, res, next) {
   const { name, username, password, password2 } = req.body;
-  const newUsuario = new User({
-    name,
-    username,
-    password,
-    password2,
-  });
-  console.log(newUsuario);
-  newUsuario.password = await newUsuario.encryptPassword(password);
 
-  await newUsuario.save();
-  console.log("registro exitoso");
-  res.render("ingresar");
+  if (name.length <= 0) {
+    res.send("ingrese el nombre");
+  }
+  if (password != password2) {
+    res.send("las contraseñas no coinciden");
+  }
+  if (password.length < 4) {
+    res.send("contraseña muy corta");
+  } else {
+    const newUsuario = new User({
+      name,
+      username,
+      password,
+      password2,
+    });
+    console.log(newUsuario);
+    newUsuario.password = await newUsuario.encryptPassword(password);
+
+    await newUsuario.save();
+    console.log("registro exitoso");
+    res.render("ingresar");
+  }
 });
 // Login
 router.post(
