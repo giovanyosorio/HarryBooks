@@ -16,4 +16,4 @@ MongoDB
 
 # Authentication
 
-Local-Passport
+Passport-Local
